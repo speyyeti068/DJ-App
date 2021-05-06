@@ -33,6 +33,14 @@ h3:hover{
 
 .speed{
     background-color: rgb(236, 14, 14) !important;
+    border-radius: 10px;
+    box-shadow: aqua 5px 5px 5px;
+}
+
+.volume{
+    background-color: rgb(236, 14, 14) !important;
+    border-radius: 10px;
+    box-shadow: aqua -5px 5px 5px;
 }
 
 .speed:hover{
@@ -42,4 +50,24 @@ h3:hover{
 
 #volumeDiv{
     float: right;
+}
+
+.sound{
+    background-color: rgb(236, 14, 14) !important;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.sound:hover{
+    color: aqua !important;
+    font-weight: bold !important;
+}
+
+canvas{
+    border-radius: 15px;
+    border: rgb(236, 14, 14) 3px solid;
+    box-shadow: aqua 0px 5px 5px;
+    margin-top: 100px;
 }
