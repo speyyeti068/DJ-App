@@ -1,5 +1,11 @@
 var song = "";
 
+var leftWristX = 0;
+var leftWristY = 0;
+
+var rightWristX = 0;
+var rightWristY = 0;
+
 function preload(){
  song = loadSound("music.mp3");
 }
@@ -10,6 +16,26 @@ function setup(){
 
     video = createCapture(VIDEO);
     video.hide();
+
+    poseNet = ml5.poseNet(video,function(){
+        console.log("Model Loaded");
+    });
+    
+    poseNet.on("pose",gotPoses);
+}
+
+function gotPoses(results){
+    if(results.length >= 0){
+        console.log(results);
+    }
+
+    leftWristX = results[0].pose.leftWrist.x;
+    leftWristY = results[0].pose.leftWrist.y;
+
+    rightWristX = results[0].pose.rightWrist.x;
+    rightWristY = results[0].pose.rightWrist.y;
+
+    console.log(leftWristX,leftWristY,rightWristX,rightWristY);
 }
 
 function draw(){
@@ -19,7 +45,10 @@ function draw(){
 function playSound(){
     song.play();
 
-    document.getElementById("stop").innerHTML = '<button class = "btn btn-danger sound" onclick="stopSound()">Stop</button>'
+    song.volume(1);
+    song.rate(1);
+
+    document.getElementById("stop").innerHTML = '<button class = "btn btn-danger sound" onclick="stopSound()">Pause</button>'
     document.getElementById("play").innerHTML = ''
 }
 
