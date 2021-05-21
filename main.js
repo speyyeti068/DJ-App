@@ -46,6 +46,29 @@ function gotPoses(results) {
 function draw() {
     image(video, 0, 0, 600, 500);
 
+    if(rightWristScore > 0.2){
+        fill("#ff0000");
+        stroke("#ff0000")
+        circle(rightWristX, rightWristY, 20);
+
+        if(rightWristY > 0 && rightWristY <= 100){
+            document.getElementById("displaySpeed").innerHTML = "Speed = 0.5x";
+            song.rate(0.5);
+        } else if(rightWristY > 100 && rightWristY <= 200){
+            document.getElementById("displaySpeed").innerHTML = "Speed = Normal";
+            song.rate(1);
+        } else if(rightWristY > 200 && rightWristY <= 300){
+            document.getElementById("displaySpeed").innerHTML = "Speed = 1.5x";
+            song.rate(1.5);
+        } else if(rightWristY > 300 && rightWristY <= 400){
+            document.getElementById("displaySpeed").innerHTML = "Speed = 2x";
+            song.rate(2);
+        } else {
+            document.getElementById("displaySpeed").innerHTML = "Speed = 2.5x";
+            song.rate(2.5);
+        }
+    }
+
     if (leftWristScore > 0.2) {
         fill("#ff0000");
         stroke("#ff0000")
