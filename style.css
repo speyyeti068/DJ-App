@@ -17,7 +17,7 @@ h3:hover{
 }
 
 #note{
-    font-size: 23px;
+    font-size: 18px !important;
 }
 
 #speedDiv{
@@ -35,12 +35,14 @@ h3:hover{
     background-color: rgb(236, 14, 14) !important;
     border-radius: 10px;
     box-shadow: aqua 5px 5px 5px;
+    font-size: 18px !important;
 }
 
 .volume{
     background-color: rgb(236, 14, 14) !important;
     border-radius: 10px;
     box-shadow: aqua -5px 5px 5px;
+    font-size: 18px !important;
 }
 
 .speed:hover{
